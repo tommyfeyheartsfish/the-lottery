@@ -9,7 +9,7 @@ public class RPCProcessor {
     private Client cl;
     private  String response=null;
 
-    public RPCProcessor(String input, Client client){
+    public RPCProcessor(String input, String client){
         this.input = input;
         this.cl = client;
         inputParts = processString(input);

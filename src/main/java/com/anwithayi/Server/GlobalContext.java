@@ -55,7 +55,7 @@ public class GlobalContext{
                 semaphore.acquire();
                 gameStartTime = System.currentTimeMillis();
                 gameEnded.set(false);
-                // Schedule the game to end after 10 minutes
+                // Schedule the game to end after 2 minutes
                 scheduler.schedule(this::endGame, 2, TimeUnit.MINUTES);
                 GameLogic.getInstance();
             } catch (InterruptedException e) {
@@ -66,11 +66,9 @@ public class GlobalContext{
         }
 
         public void startNewGame() {
-
                 resetGameState(); // Reset the game state for a new game
                 startGame();      // Start the new game
-
-        }     // Start the new game
+        }
 
 
         private void resetGameState() {
