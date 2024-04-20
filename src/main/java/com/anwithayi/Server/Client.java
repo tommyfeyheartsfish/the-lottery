@@ -6,7 +6,7 @@ public class Client {
     private int score;
     private String lastGuessedNum;
     private int lastCorrectlyGuessedNum;
-    private String username; // Assuming you need a username field as well
+    private String username; //unique identifier
     private PrintWriter out;
     private boolean hasGuessed;
 
