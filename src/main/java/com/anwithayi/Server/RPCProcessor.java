@@ -9,9 +9,9 @@ public class RPCProcessor {
     private Client cl;
     private  String response=null;
 
-    public RPCProcessor(String input, String client){
+    public RPCProcessor(String input){
         this.input = input;
-        this.cl = client;
+
         inputParts = processString(input);
         System.out.println(Arrays.toString(inputParts));
     }

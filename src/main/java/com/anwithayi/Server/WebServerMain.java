@@ -25,8 +25,8 @@ public class WebServerMain {
     @OnMessage
     public void onMessage(String message, Session session)throws IOException {
         System.out.println("Message from the client: " + message);
-        String session_id=session.getId();
-        String response = processMessage(message, session_id);
+
+        String response = processMessage(message);
         try{
         session.getBasicRemote().sendText(response);
         }catch(IOException e) {
@@ -34,9 +34,9 @@ public class WebServerMain {
         }
     }
 
-    private String processMessage(String message, String cl_id) {
+    private String processMessage(String message) {
         String response;
-            RPCProcessor messageProcessor =new RPCProcessor(message, cl_id);
+            RPCProcessor messageProcessor =new RPCProcessor(message);
             response= messageProcessor.rpcProcessor();
         return response;
     }
