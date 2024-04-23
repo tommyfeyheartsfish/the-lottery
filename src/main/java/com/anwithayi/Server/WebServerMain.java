@@ -9,7 +9,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint("/game")
+@ServerEndpoint(value = "/src/main/java/com/anwithayi/Server/WebServerMain.java")
 public class WebServerMain {
 
     @OnOpen

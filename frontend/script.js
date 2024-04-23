@@ -1,4 +1,4 @@
-const serverUrl = 'ws://localhost:8081';
+const serverUrl = 'ws://localhost:8081/src/main/java/com/anwithayi/Server/WebServerMain.java';
 const websocket = new WebSocket(serverUrl);
 const statusDisplay = document.getElementById('status');
 const guessInput = document.getElementById('guess-input');
@@ -24,10 +24,12 @@ websocket.onmessage = function(event) {
 
 websocket.onclose = function(event) {
     statusDisplay.textContent = 'Disconnected from server.';
+    console.log(`WebSocket closed: code=${event.code}, reason=${event.reason}`);
 };
 
 websocket.onerror = function(event) {
     statusDisplay.textContent = 'Error connecting to server.';
+
 };
 
 guessButton.onclick = function() {
