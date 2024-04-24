@@ -8,12 +8,22 @@
 </head>
 <body>
     <div id="game-container">
-        <h1>Number Guessing Game</h1>
+        <button id="check-button"
+          style="background-color: #ce79ce;
+               color: rgb(0, 0, 0);
+               padding: 10px 20px;
+               text-align: start;
+               text-decoration: none;
+               display: inline-block;
+               font-size: 14px;
+               margin: 4px 2px;
+               cursor: pointer;
+               border: 1px solid #000000;
+               width: 148px;">check your score
+        </button>
         <div id="status">Waiting for players...</div>
-        <input type="number" id="guess-input" placeholder="Enter your guess" min="1000" max="9999">
+        <input type="number" id="guess-input" placeholder="Enter your guess(100 -999)" min="100" max="999">
         <button id="guess-button">Guess!</button>
-        <h2>Leaderboard</h2>
-        <ul id="leaderboard"></ul>
         <div id="feedback"></div>
     </div>
     <script src="script.js"></script>
