@@ -3,7 +3,6 @@ const websocket = new WebSocket(serverUrl);
 const statusDisplay = document.getElementById('status');
 const guessInput = document.getElementById('guess-input');
 const guessButton = document.getElementById('guess-button');
-const leaderboard = document.getElementById('leaderboard');
 const feedback = document.getElementById('feedback');
 
 websocket.onopen = function(event) {
@@ -13,11 +12,8 @@ websocket.onopen = function(event) {
 websocket.onmessage = function(event) {
     const data = JSON.parse(event.data);
     switch (data.type) {
-        case 'gameUpdate':
-            updateLeaderboard(data.players);
-            break;
-        case 'feedback':
-            displayFeedback(data.correctDigits, data.rank);
+        case 'guess responded ':
+            displayFeedback(data.NumOfCorrectGuessed);
             break;
     }
 };
@@ -35,20 +31,11 @@ websocket.onerror = function(event) {
 guessButton.onclick = function() {
     const guess = parseInt(guessInput.value, 10);
     if (!isNaN(guess)) {
-        websocket.send(JSON.stringify({action: "guess", guess: guess}));
+        websocket.send(JSON.stringify("guess "+guess));
         guessInput.value = '';  // Clear input after sending
     }
 };
 
-function updateLeaderboard(players) {
-    leaderboard.innerHTML = '';
-    players.forEach(player => {
-        const li = document.createElement('li');
-        li.textContent = `Player ${player.id}: ${player.score} points`;
-        leaderboard.appendChild(li);
-    });
-}
-
 function displayFeedback(correctDigits, rank) {
-    feedback.textContent = `Correct digits: ${correctDigits}. Your rank: ${rank}`;
+    feedback.textContent = `You guessed {NumOfCorrectGuessed} numbers correctly!`;
 }
