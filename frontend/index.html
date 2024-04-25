@@ -8,23 +8,16 @@
 </head>
 <body>
     <div id="game-container">
-        <button id="check-button"
-          style="background-color: #ce79ce;
-               color: rgb(0, 0, 0);
-               padding: 10px 20px;
-               text-align: start;
-               text-decoration: none;
-               display: inline-block;
-               font-size: 14px;
-               margin: 4px 2px;
-               cursor: pointer;
-               border: 1px solid #000000;
-               width: 148px;">check your score
-        </button>
+      <button id="quit-button">quit</button>
+        <button id="check-button">check your score</button>
+        <button id="rule-button">game rule</button>
+        <br><br><br><br><br><br>
         <div id="status">Waiting for players...</div>
+        <br><br><br><br><br><br>
         <input type="number" id="guess-input" placeholder="Enter your guess(100 -999)" min="100" max="999">
-        <button id="guess-button">Guess!</button>
-        <div id="feedback"></div>
+        <button id="guess-button">GUESS!</button>
+        <button id="pass-button">PASS.</button>
+        <div id="feedback">feedback</div>
     </div>
     <script src="script.js"></script>
 </body>

@@ -16,23 +16,50 @@ body {
   box-shadow: 2px 2px 10px #aaa;
 }
 
+#quit-button, #check-button, #rule-button {
+  background-color: #ce79ce;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: start;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  width: 148px;
+}
 input, button {
   padding: 10px;
   margin: 5px;
-  width: calc(100% - 22px);
+  width: calc(300px);
   box-sizing: border-box;
 }
 
-button {
+#guess-button{
+  background-color: #75f70a;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
   cursor: pointer;
-  background-color: #0056b3;
-  color: white;
-  border: none;
+  border: 1px solid #000000;
+  width: 80px;
+}
+#pass-button{
+  background-color: #6251ff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  width: 80px;
 }
 
-button:hover {
-  background-color: #004494;
-}
 
 ul {
   list-style-type: none;
