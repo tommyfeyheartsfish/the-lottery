@@ -63,7 +63,7 @@ public class UserInterface{
             }
 
             // Send the username to the server for validation
-            out.println("checkUsername " + username); // Assuming the server expects a specific format for checking usernames
+            out.println("checkUsername " + username);
             String response = in.readLine();
 
             if ("Username is taken.".equals(response)) {

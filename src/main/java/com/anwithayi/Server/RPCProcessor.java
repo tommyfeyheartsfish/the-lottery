@@ -13,6 +13,7 @@ public class RPCProcessor {
         this.input = input;
 
         inputParts = processString(input);
+        //test
         System.out.println(Arrays.toString(inputParts));
     }
 
@@ -72,7 +73,7 @@ public class RPCProcessor {
         //if there is no second item in the array
         if(inputParts.length!=2)
         {
-            return "username can't have space.";
+            return "username: username can't have space.";
         }
         else
         {
@@ -80,15 +81,17 @@ public class RPCProcessor {
 
             if(GlobalContext.getInstance().keyFound(username))
             {
-                return "Username is taken.";
+                return "username: Username is taken.";
             }
             else
             {
+                //create a new client
+                cl = new Client();
                 cl.setUsername(username);
                 GlobalContext.getInstance().addItem(username,cl);
                 GlobalContext.getInstance().playerGuessed(username, false);
                 GlobalContext.getInstance().playerEnded(cl.getUsername(),false);
-                return "Username OK";
+                return "username: Username OK";
             }
         }
     }
@@ -138,6 +141,7 @@ public class RPCProcessor {
 
             else
             {
+                //TODO:what to do with cl??
                 String guess = inputParts[1];
                 String response = GlobalContext.getInstance().guess(cl.getUsername(), guess);
                 GlobalContext.getInstance().playerGuessed(cl.getUsername(),true);
