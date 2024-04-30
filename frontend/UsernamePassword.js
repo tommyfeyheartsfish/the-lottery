@@ -18,7 +18,7 @@ function checkUsername(message_passed_from_the_server){
   }else if(message_passed_from_the_server === "username can't have space."){
     feedback.textContent ="Username can't have space.";
 } else if (message_passed_from_the_server === "Username OK") {
-  feedback.textContent ="plyer added.";
+  feedback.textContent ="player added.";
     contentChange();
 } else {
     // Handle unexpected server response
@@ -42,7 +42,7 @@ function contentChange(){
 <button id="test-button">test.</button>
 <div id="feedback">feedback</div>
 </div>
-<script src="guessNumber.js"></script>
 `;
+setupGuessButton();
 }
 
