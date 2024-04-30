@@ -73,7 +73,7 @@ public class RPCProcessor {
         //if there is no second item in the array
         if(inputParts.length!=2)
         {
-            return "username: username can't have space.";
+            return "username:username can't have space.";
         }
         else
         {
@@ -81,17 +81,17 @@ public class RPCProcessor {
 
             if(GlobalContext.getInstance().keyFound(username))
             {
-                return "username: Username is taken.";
+                return "username:Username is taken.";
             }
             else
             {
                 //create a new client
-                cl = new Client();
-                cl.setUsername(username);
+                this.cl = new Client(username);
+                // cl.setUsername(username);
                 GlobalContext.getInstance().addItem(username,cl);
                 GlobalContext.getInstance().playerGuessed(username, false);
                 GlobalContext.getInstance().playerEnded(cl.getUsername(),false);
-                return "username: Username OK";
+                return "username:Username OK";
             }
         }
     }
@@ -127,27 +127,32 @@ public class RPCProcessor {
 
             if(inputParts.length!=2)
             {
-                return "space found";
+                return "guess:space found";
             }
 
-            else if(cl.hasGuessed())
-               {
-                 return "has guessed";
-               }
+
             else if(!isInteger(inputParts[1])||Integer.valueOf(inputParts[1])<100||Integer.valueOf(inputParts[1])>1000)
             {
-                return "number out of range";
+                return "guess:number out of range";
             }
 
             else
             {
-                //TODO:what to do with cl??
-                String guess = inputParts[1];
-                String response = GlobalContext.getInstance().guess(cl.getUsername(), guess);
-                GlobalContext.getInstance().playerGuessed(cl.getUsername(),true);
-
-                return "guess recorded " + response;
-
+                if(cl!=null)
+                {
+                   if(cl.hasGuessed())
+                    {
+                    return "guess:has guessed";
+                    }
+                else{
+                    String guess = inputParts[1];
+                    String response = GlobalContext.getInstance().guess(cl.getUsername(), guess);
+                    GlobalContext.getInstance().playerGuessed(cl.getUsername(),true);
+                    return "guess:guess recorded " + response;
+                }
+            }
+                else
+                 return "guess:player not found";
             }
      }
 

@@ -16,6 +16,9 @@ websocket.onmessage = function(event) {
         case "username":
           checkUsername(message_to_pass_on);
           break;
+        case "guess":
+          guessFeedback(message_to_pass_on);
+          break;
         default:
           console.log('Message from server:', event.data);
           displayMessage(event.data);
