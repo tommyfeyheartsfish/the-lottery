@@ -5,19 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Guessing Game</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-  <div id="content">
     <div id="username-password-container">
+        <br><br><br><br><br><br> <br><br><br><br><br><br>
         <input type="text" id="username-input" placeholder="Enter your username">
         <button id="start-game-button">Start game!</button>
-        <button id ="test">test</button>
         <div id="feedback">feedback</div>
         <div id="status">Waiting for players...</div>
-    </div>
   </div>
-    <script src="script.js"></script>
-    <script src="UsernamePassword.js"></script>
-    <script src="guessNumber.js"></script>
+  <div id="game-container" >
+        <button id="quit-button" onclick="quit()"">quit</button>
+        <button id="check-button" onclick="checkScore()">check your score</button>
+        <button id="rule-button" onclick="rule()">game rule</button>
+        <br><br><br><br><br><br>
+        <div id="status">Waiting for players...</div>
+        <br><br><br><br><br><br>
+        <input type="number" id="guess-input" placeholder="Enter your guess(100 -999)" min="100" max="999">
+        <button id="guess-button" onclick="guess()">GUESS!</button>
+        <button id="pass-button" onclick="pass()">PASS.</button>
+        <div id="feedback">feedback</div>
+  </div>
+  <dix id="quit-container"></dix>
+  <!--display ranking, goodbye message-->
+  <!---game rule and check score: 弹出窗口-->
+  <script src="script.js"></script>
+  <script src="UsernamePassword.js"></script>
+  <script src="guessNumber.js"></script>
 </body>
 </html>
+
