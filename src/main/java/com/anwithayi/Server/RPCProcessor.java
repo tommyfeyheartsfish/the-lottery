@@ -9,9 +9,9 @@ public class RPCProcessor {
     private Client cl;
     private  String response=null;
 
-    public RPCProcessor(String input){
+    public RPCProcessor(Client cl, String input){
         this.input = input;
-
+        this.cl = cl;
         inputParts = processString(input);
         //test
         System.out.println(Arrays.toString(inputParts));
@@ -86,8 +86,8 @@ public class RPCProcessor {
             else
             {
                 //create a new client
-                this.cl = new Client(username);
-                // cl.setUsername(username);
+                // this.cl = new Client(username);
+                cl.setUsername(username);
                 GlobalContext.getInstance().addItem(username,cl);
                 GlobalContext.getInstance().playerGuessed(username, false);
                 GlobalContext.getInstance().playerEnded(cl.getUsername(),false);
@@ -120,7 +120,7 @@ public class RPCProcessor {
         GlobalContext.getInstance().removeItem(cl.getUsername());
 
 
-        return "removed";
+        return "quit:removed";
      }
 
      private String guess(){
@@ -159,7 +159,7 @@ public class RPCProcessor {
 
     //for fethching the current score of the client
     private String getScore(){
-        return String.valueOf(cl.getScore());
+        return "score:"+String.valueOf(cl.getScore());
     }
 
 
@@ -171,7 +171,7 @@ public class RPCProcessor {
         cl.setLastGuessedNum(null);
         cl.setLastCorrectlyGuessedNum(0);
 
-    return "waiting for other players";
+    return "pass:waiting for other players";
      }
 
      private String[] processString(String input) {

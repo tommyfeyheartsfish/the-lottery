@@ -15,24 +15,39 @@
         <div id="feedback">feedback</div>
         <div id="status">Waiting for players...</div>
   </div>
-  <div id="game-container" >
+  <div id="game-container" style="display:none;">
         <button id="quit-button" onclick="quit()"">quit</button>
         <button id="check-button" onclick="checkScore()">check your score</button>
         <button id="rule-button" onclick="rule()">game rule</button>
         <br><br><br><br><br><br>
-        <div id="status">Waiting for players...</div>
         <br><br><br><br><br><br>
         <input type="number" id="guess-input" placeholder="Enter your guess(100 -999)" min="100" max="999">
         <button id="guess-button" onclick="guess()">GUESS!</button>
         <button id="pass-button" onclick="pass()">PASS.</button>
-        <div id="feedback">feedback</div>
+        <p id="feedback-for-the-guess" style="color: rgb(167, 12, 12)"></p>
+        <p id="errorMessage" style="color: red;"></p>
   </div>
-  <dix id="quit-container"></dix>
+  <div id="ranking-container">
+
+  </div>
+  <div id="quit-container"></div>
   <!--display ranking, goodbye message-->
   <!---game rule and check score: 弹出窗口-->
+  <div id="guess-feedback-container"></div>
+  <!--waiting for other player: 弹出窗口+倒计时-->
+  <div id="Modal-for-guessing-feedback" class="modal">
+    <div class="modal-content">
+        <p id="modalText">Some text in the Modal..</p>
+        <button onclick="closeModal()">Okay</button>
+    </div>
+</div>
   <script src="script.js"></script>
   <script src="UsernamePassword.js"></script>
   <script src="guessNumber.js"></script>
+  <script src="rule.js"></script>
+  <script src="checkScore.js"></script>
+  <script src="quit.js"></script>
+  <script src="pass.js"></script>
 </body>
 </html>
 

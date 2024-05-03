@@ -108,7 +108,7 @@ public class GlobalContext{
             }
             return GameLogic.getInstance().getAnswer() +" " + correctlyGuessedDigits + " " + pointGain;
         }
-
+        //TODO:if every player has played, broadcast the score
         public void playerGuessed(String key, boolean played) {
             try {
                 semaphore.acquire();

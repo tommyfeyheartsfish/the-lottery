@@ -17,7 +17,27 @@ websocket.onmessage = function(event) {
           checkUsername(message_to_pass_on);
           break;
         case "guess":
+          //-----testing(check)
+          console.log('Message for feedback:', event.data);
+          //----testing
           guessFeedback(message_to_pass_on);
+          break;
+        case "score":
+          //-----testing (check)
+          console.log('Message for feedback:', event.data);
+          //----testing
+          scoreFeedback(message_to_pass_on);
+        case "quit":
+          //------testing(check)
+          console.log('Message for quiting:', event.data);
+          //-------testing
+          disconnect_from_server(message_to_pass_on);
+          break;
+        case "pass":
+          //------testing(check)
+          console.log('Message for feedback:', event.data);
+          //-------testing
+          passFeedback(message_to_pass_on);
           break;
         default:
           console.log('Message from server:', event.data);
@@ -39,7 +59,7 @@ websocket.onerror = function(event) {
 function displayFeedback(correctDigits, rank) {
     feedback.textContent = `You guessed {NumOfCorrectGuessed} numbers correctly!`;
 }
-//test
+
 function displayMessage(message) {
     feedback.textContent = message;
 }

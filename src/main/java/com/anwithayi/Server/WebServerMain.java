@@ -10,8 +10,10 @@ import javax.websocket.OnError;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+
 @ServerEndpoint(value = "/src/main/java/com/anwithayi/Server/WebServerMain.java")
 public class WebServerMain {
+    private Client cl;
 
     @OnOpen
     public void onOpen(Session session){
@@ -33,26 +35,27 @@ public class WebServerMain {
         System.out.println("Message from the client: " + message);
 
         String response = processMessage(message);
-        System.out.println(response);
+        System.out.println("Message send back to the client:"+ response);
         try{
         session.getBasicRemote().sendText(response);
         }catch(IOException e) {
             System.err.println("Error sending message: "+e.getMessage());
         }
     }
-
+    //TODO:make sure the client sent the message is the same client
     private String processMessage(String message) {
         String response;
-        //test
-        if(message.equals("test")){
-            response = "test success!";
+
+        if(message.startsWith("checkUsername")){
+            //create new user
+            this.cl= new Client();
         }
-        else
-            {RPCProcessor messageProcessor =new RPCProcessor(message);
-            response= messageProcessor.rpcProcessor();
-            //test
-            System.out.println(response);
-            }
+        else if(cl==null)
+        {
+            response="error: player doesn't exsit";
+        }
+        RPCProcessor messageProcessor =new RPCProcessor(cl, message);
+        response= messageProcessor.rpcProcessor();
         return response;
     }
 }
